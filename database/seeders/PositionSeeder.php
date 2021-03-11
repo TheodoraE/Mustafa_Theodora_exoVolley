@@ -17,16 +17,16 @@ class PositionSeeder extends Seeder
         DB::table('positions')->insert(
             [
                 [
-                    'position' => "avant"
+                    'position' => "Avant"
                 ],
                 [
-                    'position' => "central"
+                    'position' => "Central"
                 ],
                 [
-                    'position' => "arrière"
+                    'position' => "Arrière"
                 ],
                 [
-                    'position' => "remplaçant"
+                    'position' => "Remplaçant"
                 ]
             ]
         );
