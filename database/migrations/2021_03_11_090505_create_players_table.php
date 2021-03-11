@@ -20,8 +20,8 @@ class CreatePlayersTable extends Migration
             $table->integer('age');
             $table->string('phone');
             $table->string('email');
-            $table->string('country_origin');
 
+            
             $table->unsignedBigInteger('gender_id');
             $table->foreign('gender_id')->references('id')->on('genders');
             $table->unsignedBigInteger('position_id');

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 style="text-decoration: underline" class="my-4">Add new players: </h1>
+        <h1 style="text-decoration: underline" class="my-4">Edit players: </h1>
 
         <div>
             @if ($errors->any())
@@ -15,33 +15,34 @@
                 </div>
             @endif
         </div>
-        <form action="/players" method="POST" enctype="multipart/form-data">
+        <form action="/players/{{$edit->id}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="row">
                 <div class="form-group col-6">
                     <label for="lastname">Name : </label>
-                    <input class="form-control" type="text" id="lastname" name="lastname" value="{{old('lastname')}}">
+                    <input class="form-control" type="text" id="lastname" name="lastname" value="{{old('lastname') ? old('lastname') : $edit->lastname}}">
                 </div>
                 <div class="form-group col-6">
                     <label for="firstname">Firstname : </label>
-                    <input class="form-control" type="text" id="firstname" name="firstname" value="{{old('firstname')}}">
+                    <input class="form-control" type="text" id="firstname" name="firstname" value="{{old('firstname') ? old('firstname') : $edit->firstname}}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="age">Age : </label>
-                <input class="form-control" type="number" id="age" name="age" value="{{old('age')}}">
+                <input class="form-control" type="number" id="age" name="age" value="{{old('age') ? old('age') : $edit->age}}">
             </div>
             <div class="form-group">
                 <label for="phone">Phone : </label>
-                <input class="form-control" type="text" id="phone" name="phone" value="{{old('phone')}}">
+                <input class="form-control" type="text" id="phone" name="phone" value="{{old('phone') ? old('phone') : $edit->phone}}">
             </div>
             <div class="form-group">
                 <label for="email">Email : </label>
-                <input class="form-control" type="email" id="email" name="email" value="{{old('email')}}">
+                <input class="form-control" type="email" id="email" name="email" value="{{old('email') ? old('email') : $edit->email}}">
             </div>
             <div class="form-group">
                 <label for="country_origin">Origin Country : </label>
-                <input class="form-control" type="text" id="country_origin" name="country_origin" value="{{old('country_origin')}}">
+                <input class="form-control" type="text" id="country_origin" name="country_origin" value="{{old('country_origin') ? old('country_origin') : $edit->country_origin}}">
             </div>
 
 

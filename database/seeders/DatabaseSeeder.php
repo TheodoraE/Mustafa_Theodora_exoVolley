@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +21,6 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             TeamSeeder::class
         ]);
+        Team::factory()->count(4)->create();
     }
 }

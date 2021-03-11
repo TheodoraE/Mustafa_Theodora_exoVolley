@@ -17,7 +17,10 @@ class TeamSeeder extends Seeder
         DB::table('teams')->insert(
             [
                 [
-                    'name' => "Sans équipe"
+                    'name' => "Sans équipe",
+                    'city' => "",
+                    'country' => "",
+                    'players_max' => 30
                 ]
             ]
         );

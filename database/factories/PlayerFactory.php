@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Player;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use PharIo\Manifest\Email;
 
 class PlayerFactory extends Factory
 {
@@ -22,7 +23,12 @@ class PlayerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            // 'lastname' => $this->faker->lastName(),
+            // 'firstname' => $this->faker->firstName(),
+            // 'age' => $this->faker->numberBetween(18,35),
+            // 'phone' => $this->faker->phoneNumber(),
+            // 'email' => $this->faker->email(),
+            // 'country_origin' => $this->faker->country,
         ];
     }
 }

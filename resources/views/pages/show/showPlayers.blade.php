@@ -10,7 +10,7 @@
                     </div>
                     <span class="card-subtitle">Numéro : {{$show->id}}</span>
                     <h2 class="card-title">Nom : {{$show->lastname}} {{$show->firstname}}</h2>
-                    <h2 class="card-title">Équipe : {{$show->teams->name}}</h2>
+                    <h2 class="card-title">Équipe : <a href="/teams/{{$show->id}}">{{$show->teams->name}}</a></h2>
                     <h3 class="card-title">Age : {{$show->age}}</h3>
                     <h5 class="card-subtitle mb-2">Genre : {{$show->genders->gender}}</h5>
                     <h5 class="card-subtitle mb-2">Position : {{$show->positions->position}}</h5>

@@ -22,7 +22,11 @@ class TeamFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=> $this->faker->lastName(),
+            'city'=> $this->faker->city(),
+            'country'=> $this->faker->state(),
+            // 'players_max'=> $this->faker->boolean,
+            'players_max' => $this->faker->unique()->numberBetween(10, 20)
         ];
     }
 }

@@ -44,6 +44,19 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            "lastname" => 'required',
+            "firstname" => 'required',
+            "age" => 'integer',
+            "phone" => 'required',
+            "email" => 'required',
+            "country_origin" => 'required',
+            "gender_id" => 'required',
+            "position_id" => 'required',
+            "team_id" => 'required',
+            "url" => 'required'
+        ]);
+
         // Picture
         $storeImg = new Picture;
         $storeImg->url = $request->file('url')->hashName();
@@ -78,7 +91,8 @@ class PlayerController extends Controller
     {
         $show = Player::find($id);
         $showImg = Picture::find($id);
-        return view('pages.show.showPlayers', compact('show', 'showImg'));
+        $teams = Team::all();
+        return view('pages.show.showPlayers', compact('show', 'showImg', 'teams'));
     }
 
     /**
@@ -87,9 +101,13 @@ class PlayerController extends Controller
      * @param  \App\Models\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function edit(Player $player)
+    public function edit($id)
     {
-        //
+        $edit = Player::find($id);
+        $genders = Gender::all();
+        $positions = Position::all();
+        $teams = Team::all();
+        return view('pages.edit.editPlayers', compact('edit', 'genders', 'positions', 'teams'));
     }
 
     /**
@@ -99,9 +117,44 @@ class PlayerController extends Controller
      * @param  \App\Models\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "lastname" => 'required',
+            "firstname" => 'required',
+            "age" => 'integer',
+            "phone" => 'required',
+            "email" => 'required',
+            "country_origin" => 'required',
+            "gender_id" => 'required',
+            "position_id" => 'required',
+            "team_id" => 'required',
+            "url" => 'required'
+        ]);
+
+        // Picture
+        $updateImg = Picture::find($id);
+        Storage::delete('public/img/'.$updateImg->url);
+        $updateImg->url = $request->file('url')->hashName();
+        Storage::put('public/img', $request->file('url'));
+        $updateImg->save();
+
+        // Player
+        $update = Player::find($id);
+        $update->lastname = $request->lastname;
+        $update->firstname = $request->firstname;
+        $update->age = $request->age;
+        $update->phone = $request->phone;
+        $update->email = $request->email;
+        $update->country_origin = $request->country_origin;
+
+        $update->gender_id = $request->gender_id;
+        $update->position_id = $request->position_id;
+        $update->team_id = $request->team_id;
+        $update->picture_id = $updateImg->id;
+        $update->save();
+
+        return redirect('/players');
     }
 
     /**
@@ -110,8 +163,13 @@ class PlayerController extends Controller
      * @param  \App\Models\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Player $player)
+    public function destroy($id)
     {
-        //
+        $destroyImg = Picture::find($id);
+        $destroy = Player::find($id);
+        Storage::delete('public/img/'.$destroyImg->url);
+        $destroyImg->delete();
+        $destroy->delete();
+        return redirect('/');
     }
 }
