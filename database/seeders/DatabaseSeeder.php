@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            PositionSeeder::class
+            PositionSeeder::class,
+            GenderSeeder::class
         ]);
         Team::factory()->count(4)->create();
     }

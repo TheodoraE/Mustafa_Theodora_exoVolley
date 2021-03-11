@@ -26,8 +26,8 @@ class CreatePlayersTable extends Migration
             $table->foreign('gender_id')->references('id')->on('genders');
             $table->unsignedBigInteger('position_id');
             $table->foreign('position_id')->references('id')->on('positions');
-            $table->unsignedBigInteger('team_id');
-            $table->foreign('team_id')->references('id')->on('teams');
+            $table->unsignedBigInteger('team_id')->nullable();
+            $table->foreign('team_id')->references('id')->on('teams')->nullable();
             $table->unsignedBigInteger('picture_id');
             $table->foreign('picture_id')->references('id')->on('pictures');
 
