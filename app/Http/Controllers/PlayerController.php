@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gender;
+use App\Models\Picture;
 use App\Models\Player;
 use App\Models\Position;
+use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PlayerController extends Controller
 {
@@ -15,7 +19,8 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        //
+        $players = Player::all();
+        return view('pages.listPlayers', compact('players'));
     }
 
     /**
@@ -25,8 +30,10 @@ class PlayerController extends Controller
      */
     public function create()
     {
+        $genders = Gender::all();
         $positions = Position::all();
-        return view('pages.createPlayers', compact('positions'));
+        $teams = Team::all();
+        return view('pages.create.createPlayers', compact('genders', 'positions', 'teams'));
     }
 
     /**
@@ -37,7 +44,28 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Picture
+        $storeImg = new Picture;
+        $storeImg->url = $request->file('url')->hashName();
+        Storage::put('public/img', $request->file('url'));
+        $storeImg->save();
+
+        // Player
+        $store = new Player;
+        $store->lastname = $request->lastname;
+        $store->firstname = $request->firstname;
+        $store->age = $request->age;
+        $store->phone = $request->phone;
+        $store->email = $request->email;
+        $store->country_origin = $request->country_origin;
+
+        $store->gender_id = $request->gender_id;
+        $store->position_id = $request->position_id;
+        $store->team_id = $request->team_id;
+        $store->picture_id = $storeImg->id;
+        $store->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -46,9 +74,11 @@ class PlayerController extends Controller
      * @param  \App\Models\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function show(Player $player)
+    public function show($id)
     {
-        //
+        $show = Player::find($id);
+        $showImg = Picture::find($id);
+        return view('pages.show.showPlayers', compact('show', 'showImg'));
     }
 
     /**
