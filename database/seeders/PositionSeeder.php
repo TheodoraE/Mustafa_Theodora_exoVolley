@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PositionSeeder extends Seeder
 {
@@ -13,6 +14,21 @@ class PositionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('positions')->insert(
+            [
+                [
+                    'position' => "avant"
+                ],
+                [
+                    'position' => "central"
+                ],
+                [
+                    'position' => "arrière"
+                ],
+                [
+                    'position' => "remplaçant"
+                ]
+            ]
+        );
     }
 }
