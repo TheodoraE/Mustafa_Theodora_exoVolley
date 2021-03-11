@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,9 @@ class TeamController extends Controller
     public function show($id)
     {
         $show = Team::find($id);
-        return view('pages/show/teamShow',compact('show'));
+        $players= Player::all();
+        return view('pages/show/teamShow',compact('show','players'));
+        // dd($players);
     }
 
  

@@ -29,39 +29,24 @@
           <thead class="bg-warning text-dark">
               <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Max players</th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Position</th>
                   <th scope="col"></th>
               </tr>
           </thead>
           <tbody>
-              {{-- @foreach ($team as $item)
-                  <tr>
-                      <th scope="row">{{ $item->id }}</th>
-                      <td>{{ $item->name }}</td>
-                      <td>{{ $item->country }}</td>
-                      <td>{{ $item->city }}</td>
-                      <td>{{ $item->players_max }}</td>
-                      <td>
-                          <a class="btn btn-warning" href="/teams/{{ $item->id }}">SHOW</a>
-                      </td>
-                      <td>
-                          <a href="teams/{{ $item->id }}/edit" class="btn btn-warning mb-2">EDIT</a>
-                      <td>
-                      <td>
-                          <form action="/teams/{{ $item->id }}" method="POST">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-danger">Delete</button>
-                          </form>
-                      </td>
-                  </tr>
-              @endforeach --}}
+            @foreach ($players as $item)
+              @if ($item->teams->name == $show->name)
+                 <tr>
+                     <th scope="row">{{ $show->id }}</th>
+                     <td>{{ $item->firstname }}</td>
+                     <td>{{ $item->lastname }}</td>
+                     <td>{{ $item->positions->position}}</td>
+                     <td><a class="btn btn-warning" href="/players/{{$show->id}}">more info</a></td>
+                 </tr>
+              @endif 
+          @endforeach
           </tbody>
       </table>
     </div>

@@ -23,7 +23,7 @@
                     <th scope="row">{{$player->id}}</th>
                     <td> {{$player->lastname}}</td>
                     <td>{{$player->firstname}}</td>
-                    <td>{{$player->team}}</td>
+                    <td>{{$player->teams->name}}</td>
                     <td>
                         <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
                     </td>
