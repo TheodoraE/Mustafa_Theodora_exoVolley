@@ -23,9 +23,11 @@ class TeamController extends Controller
   
     public function store(Request $request)
     {
-        // $validation = $request->validateWithBag("homet1",[
-        //     "titre" => 'required',
-        // ]);
+        $validation = $request->validate([
+            "name" => 'required',
+            "country" => 'required',
+            "city" => 'required',
+        ]);
         $store = new Team();
         $store->name= $request->name;
         $store->city= $request->city;
@@ -36,25 +38,40 @@ class TeamController extends Controller
     }
 
  
-    public function show()
+    public function show($id)
     {
-       
+        $show = Team::find($id);
+        return view('pages/show/teamShow',compact('show'));
     }
 
  
-    public function edit(Team $team)
+    public function edit($id)
     {
-        //
+        $edit = Team::find($id);
+        return view('pages/edit/teamEdit',compact('edit'));
     }
 
     
-    public function update(Request $request, Team $team)
+    public function update(Request $request,$id)
     {
-        //
+        $validation = $request->validate([
+            "name" => 'required',
+            "country" => 'required',
+            "city" => 'required',
+        ]);
+        $update = Team::find($id);
+        $update->name= $request->name;
+        $update->city= $request->city;
+        $update->country= $request->country;
+        $update->players_max= $request->players_max;
+        $update->save();
+        return redirect('/teams');
     }
 
-    public function destroy(Team $team)
+    public function destroy($id)
     {
-        //
+        $destroy = Team::find($id);
+        $destroy->delete();
+        return redirect()->back();
     }
 }
