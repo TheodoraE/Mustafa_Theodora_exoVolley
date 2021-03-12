@@ -54,7 +54,7 @@ class PlayerController extends Controller
             "gender_id" => 'required',
             "position_id" => 'required',
             // "team_id" => 'required',
-            "url" => 'required'
+            // "url" => 'required'
         ]);
 
         // Picture
@@ -91,7 +91,8 @@ class PlayerController extends Controller
     {
         $show = Player::find($id);
         $teams = Team::all();
-        return view('pages.show.showPlayers', compact('show', 'teams'));
+        $img= Picture::all(); 
+        return view('pages.show.showPlayers', compact('show','teams','img'));
     }
 
     /**
@@ -128,16 +129,16 @@ class PlayerController extends Controller
             "gender_id" => 'required',
             "position_id" => 'required',
             // "team_id" => 'required',
-            "url" => 'required'
-        ]);
-
-        // Picture
+            // "url" => 'required'
+            ]);
+            
+            // Picture
         $updateImg = Picture::find($id);
-        Storage::delete('public/img/'.$updateImg->url);
+        // Storage::delete('public/img/'.$updateImg->url);
         $updateImg->url = $request->file('url')->hashName();
         Storage::put('public/img', $request->file('url'));
         $updateImg->save();
-
+        
         // Player
         $update = Player::find($id);
         $update->lastname = $request->lastname;
@@ -166,9 +167,9 @@ class PlayerController extends Controller
     {
         $destroyImg = Picture::find($id);
         $destroy = Player::find($id);
-        Storage::delete('public/img/'.$destroyImg->url);
-        $destroyImg->delete();
+        // Storage::delete('public/img/'.$destroyImg->url);
+        // $destroyImg->delete();
         $destroy->delete();
-        return redirect('/');
+        return redirect('/players');
     }
 }

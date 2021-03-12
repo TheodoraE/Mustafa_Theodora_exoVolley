@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label for="team_id">Team :</label>
                 <select class="form-control" id="team_id" name="team_id" value="">
-                    <option value="null">Sans equipe</option>
+                    <option value="">Sans equipe</option>
                     @foreach ($teams as $team)
                         <option value="{{$team->id}}">{{$team->name}}</option>
                     @endforeach
@@ -74,7 +74,7 @@
 
             <div class="form-group">
                 <label for="url">Picture : </label>
-                <input type="file" id="url" name="url" value="">
+                <input type="file" id="url" name="url" value="silouhaite.jpeg">
             </div>
 
 

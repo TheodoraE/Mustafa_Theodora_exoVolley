@@ -6,10 +6,10 @@
             <div class="card" style="width: 30rem;">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        @if ($show->pictures_id == "")
-                        <img src="{{asset('storage/img/silouhaite.jpeg')}}" alt="" height="150px">
-                        @else
+                        @if ($show->picture_id != Null)
                         <img src="{{asset('storage/img/'.$show->pictures->url)}}" alt="" height="150px">            
+                        @else
+                        <img src="{{asset('storage/img/silouhaite.jpeg')}}" alt="" height="150px">
                         @endif
                     </div>
                     <span class="card-subtitle">Numéro : {{$show->id}}</span>
