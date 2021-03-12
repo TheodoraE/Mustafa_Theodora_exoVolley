@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <h1 style="text-decoration: underline">Liste of teams: </h1>
+    <h1 style="text-decoration: underline">List of teams: </h1>
 
     <table class="table table-striped table-dark">
         <thead class="bg-warning text-dark">

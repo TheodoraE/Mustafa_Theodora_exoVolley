@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\TeamController;
+use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    
-    return view('dashboard');
+    $team= Team::all();
+    $players= Player::all();
+    return view('dashboard', compact('team', 'players'));
 });
 
 // Deux routes resources

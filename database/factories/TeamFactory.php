@@ -25,8 +25,8 @@ class TeamFactory extends Factory
             'name'=> $this->faker->lastName(),
             'city'=> $this->faker->city(),
             'country'=> $this->faker->state(),
-            // 'players_max'=> $this->faker->boolean,
-            'players_max' => $this->faker->unique()->numberBetween(10, 20)
+            'players_max'=> $this->faker->boolean,
+            // 'players_max' => $this->faker->unique()->numberBetween(10, 20)
         ];
     }
 }
