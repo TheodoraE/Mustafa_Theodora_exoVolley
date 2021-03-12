@@ -15,6 +15,7 @@
                 </div>
             @endif
         </div>
+
         <form action="/players" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">

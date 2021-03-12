@@ -20,7 +20,9 @@ class PlayerController extends Controller
     public function index()
     {
         $players = Player::all();
+    
         return view('pages.listPlayers', compact('players'));
+        // return redirect('/players')->with('status', 'Profile updated!');
     }
 
     /**
@@ -55,7 +57,7 @@ class PlayerController extends Controller
             "position_id" => 'required',
             // "team_id" => 'required',
             "url" => 'required'
-        ]);
+        ]);        
 
         // Picture
         $storeImg = new Picture;
