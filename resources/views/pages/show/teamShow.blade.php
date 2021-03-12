@@ -13,6 +13,7 @@
             <div class="card-body">
               <p class="card-text">Name: {{$show->name}}</p>
               <p class="card-text">country: {{$show->country}}</p>
+            <p class="card-text">continent: {{$show->continents->continent}}</p> 
               <p class="card-text">city: {{$show->city}}</p>
               <p class="card-text">Total players: 9/{{$show->players_max}}</p>
             </div>
@@ -43,7 +44,7 @@
                      <td>{{ $item->firstname }}</td>
                      <td>{{ $item->lastname }}</td>
                      <td>{{ $item->positions->position}}</td>
-                     <td><a class="btn btn-warning" href="/players/{{$show->id}}">more info</a></td>
+                     <td><a class="btn btn-warning" href="/players/{{$item->id}}">more info</a></td>
                  </tr>
               @endif 
           @endforeach

@@ -64,6 +64,7 @@
             <div class="form-group">
                 <label for="team_id">Team :</label>
                 <select class="form-control" id="team_id" name="team_id" value="">
+                    <option value="0">Sans equipe</option>
                     @foreach ($teams as $team)
                         <option value="{{$team->id}}">{{$team->name}}</option>
                     @endforeach

@@ -12,4 +12,8 @@ class Team extends Model
     {
         return $this->hasMany(Player::class);
     }
+    public function continents()
+    {
+        return $this->belongsTo(Continent::class, 'continent_id');
+    }
 }

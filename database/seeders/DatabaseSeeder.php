@@ -19,8 +19,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PositionSeeder::class,
             GenderSeeder::class,
-            TeamSeeder::class
+            TeamSeeder::class,
+            ContinentSeeder::class,
         ]);
-        Team::factory()->count(4)->create();
+        Team::factory()->count(10)->create();
     }
 }

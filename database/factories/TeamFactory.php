@@ -23,9 +23,10 @@ class TeamFactory extends Factory
     {
         return [
             'name'=> $this->faker->lastName(),
+            'continent_id'=> $this->faker->numberBetween($min = 1, $max = 6),
             'city'=> $this->faker->city(),
             'country'=> $this->faker->state(),
-            'players_max'=> $this->faker->boolean,
+            'players_max'=> $this->faker->randomElement($array = array ('10','15')),
             // 'players_max' => $this->faker->unique()->numberBetween(10, 20)
         ];
     }

@@ -6,7 +6,7 @@
             <div class="card" style="width: 30rem;">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="{{asset('storage/img/'.$showImg->url)}}" alt="" height="150px">
+                        <img src="{{asset('storage/img/'.$show->pictures->url)}}" alt="" height="150px">
                     </div>
                     <span class="card-subtitle">Numéro : {{$show->id}}</span>
                     <h2 class="card-title">Nom : {{$show->lastname}} {{$show->firstname}}</h2>

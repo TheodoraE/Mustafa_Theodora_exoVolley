@@ -14,15 +14,16 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('teams')->insert(
-            [
-                [
-                    'name' => "Sans équipe",
-                    'city' => "",
-                    'country' => "",
-                    'players_max' => 30
-                ]
-            ]
-        );
+        // DB::table('teams')->insert(
+        //     [
+        //         [
+        //             'name' => "Sans équipe",
+        //             'continent_id' =>0,
+        //             'city' => "Rien",
+        //             'country' => "Rien",
+        //             'players_max' => 15
+        //         ]
+        //     ]
+        // );
     }
 }

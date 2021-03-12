@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Continent;
+use App\Models\Picture;
 use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -18,7 +20,8 @@ class TeamController extends Controller
  
     public function create()
     {
-        return view('pages/create/createTeams');
+        $continent= Continent::all();
+        return view('pages/create/createTeams',compact('continent'));
     }
 
   
@@ -34,6 +37,7 @@ class TeamController extends Controller
         $store->city= $request->city;
         $store->country= $request->country;
         $store->players_max= $request->players_max;
+        $store->continent_id = $request->continent_id;
         $store->save();
         return redirect()->back();
     }
@@ -44,7 +48,7 @@ class TeamController extends Controller
         $show = Team::find($id);
         $players= Player::all();
         return view('pages/show/teamShow',compact('show','players'));
-        // dd($players);
+        // dd($show);
     }
 
  

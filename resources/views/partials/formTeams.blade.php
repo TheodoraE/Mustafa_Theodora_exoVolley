@@ -33,6 +33,14 @@
                 <option>15</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="continent_id">Select continent</label>
+            <select class="form-control" id="continent_id" name="continent_id" value="">
+                @foreach ($continent as $item)
+                    <option value="{{$item->id}}">{{$item->continent}}</option>            
+                @endforeach
+            </select>
+        </div>
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-warning mt-4 mb-4">Ajouter</button>
 

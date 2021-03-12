@@ -15,9 +15,11 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('city');
             $table->string('country');
+            $table->unsignedBigInteger('continent_id')->nullable();
+            $table->foreign('continent_id')->references('id')->on('continents')->nullable();
             $table->integer('players_max');
             $table->timestamps();
         });
