@@ -6,11 +6,22 @@
             <div class="card" style="width: 30rem;">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="{{asset('storage/img/'.$show->pictures->url)}}" alt="" height="150px">
+                        @if ($show->pictures_id == "")
+                        <img src="{{asset('storage/img/silouhaite.jpeg')}}" alt="" height="150px">
+                        @else
+                        <img src="{{asset('storage/img/'.$show->pictures->url)}}" alt="" height="150px">            
+                        @endif
                     </div>
                     <span class="card-subtitle">Numéro : {{$show->id}}</span>
                     <h2 class="card-title">Nom : {{$show->lastname}} {{$show->firstname}}</h2>
-                    <h2 class="card-title">Équipe : <a href="/teams/{{$show->id}}">{{$show->teams->name}}</a></h2>
+                    <h2 class="card-title">
+                        Équipe : 
+                        @if ($show->team_id == '')
+                            sans equipe       
+                        @else
+                        <a href="/teams/{{$show->team_id}}">{{$show->teams->name}}</a>     
+                        @endif
+                    </h2>
                     <h3 class="card-title">Age : {{$show->age}}</h3>
                     <h5 class="card-subtitle mb-2">Genre : {{$show->genders->gender}}</h5>
                     <h5 class="card-subtitle mb-2">Position : {{$show->positions->position}}</h5>

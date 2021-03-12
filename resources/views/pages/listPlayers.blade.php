@@ -23,7 +23,11 @@
                     <th scope="row">{{$player->id}}</th>
                     <td> {{$player->lastname}}</td>
                     <td>{{$player->firstname}}</td>
+                    @if ($player->team_id == '')
+                        <td>Sans equipe</td>
+                    @else
                     <td>{{$player->teams->name}}</td>
+                    @endif
                     <td>
                         <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
                     </td>

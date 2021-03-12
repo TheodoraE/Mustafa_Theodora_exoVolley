@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             TeamSeeder::class,
             ContinentSeeder::class,
+        
         ]);
         Team::factory()->count(10)->create();
+        Player::factory()->count(15)->create();
     }
 }

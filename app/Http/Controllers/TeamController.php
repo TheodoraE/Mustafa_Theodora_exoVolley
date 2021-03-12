@@ -47,8 +47,12 @@ class TeamController extends Controller
     {
         $show = Team::find($id);
         $players= Player::all();
-        return view('pages/show/teamShow',compact('show','players'));
+
+        $teamplayers= $players->where("team_id",$show->id);
+
+        return view('pages/show/teamShow',compact('show','players','teamplayers'));
         // dd($show);
+
     }
 
  

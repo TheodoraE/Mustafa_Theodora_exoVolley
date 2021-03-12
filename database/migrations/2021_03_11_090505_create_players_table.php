@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreatePlayersTable extends Migration
 {
@@ -29,8 +30,8 @@ class CreatePlayersTable extends Migration
             $table->foreign('position_id')->references('id')->on('positions');
             $table->unsignedBigInteger('team_id')->nullable();
             $table->foreign('team_id')->references('id')->on('teams')->nullable();
-            $table->unsignedBigInteger('picture_id');
-            $table->foreign('picture_id')->references('id')->on('pictures');
+            $table->unsignedBigInteger('picture_id')->nullable();
+            $table->foreign('picture_id')->references('id')->on('pictures')->nullable();
 
             $table->timestamps();
         });

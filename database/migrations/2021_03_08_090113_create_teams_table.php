@@ -14,7 +14,7 @@ class CreateTeamsTable extends Migration
     public function up()
     {
         Schema::create('teams', function (Blueprint $table) {
-            $table->id();
+            $table->id()->onDelete('cascade');
             $table->string('name')->nullable();
             $table->string('city');
             $table->string('country');

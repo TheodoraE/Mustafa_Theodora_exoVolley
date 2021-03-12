@@ -13,9 +13,9 @@
             <div class="card-body">
               <p class="card-text">Name: {{$show->name}}</p>
               <p class="card-text">country: {{$show->country}}</p>
-            <p class="card-text">continent: {{$show->continents->continent}}</p> 
+              <p class="card-text">continent: {{$show->continents->continent}}</p>
               <p class="card-text">city: {{$show->city}}</p>
-              <p class="card-text">Total players: 9/{{$show->players_max}}</p>
+              <p class="card-text">Total players: {{count($teamplayers)}}/{{$show->players_max}}</p>
             </div>
           </div>
 
@@ -38,9 +38,9 @@
           </thead>
           <tbody>
             @foreach ($players as $item)
-              @if ($item->teams->name == $show->name)
+              @if ($item->team_id == $show->id)
                  <tr>
-                     <th scope="row">{{ $show->id }}</th>
+                     <th scope="row">{{ $item->id }}</th>
                      <td>{{ $item->firstname }}</td>
                      <td>{{ $item->lastname }}</td>
                      <td>{{ $item->positions->position}}</td>

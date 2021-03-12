@@ -23,12 +23,15 @@ class PlayerFactory extends Factory
     public function definition()
     {
         return [
-            // 'lastname' => $this->faker->lastName(),
-            // 'firstname' => $this->faker->firstName(),
-            // 'age' => $this->faker->numberBetween(18,35),
-            // 'phone' => $this->faker->phoneNumber(),
-            // 'email' => $this->faker->email(),
-            // 'country_origin' => $this->faker->country,
+            'lastname' => $this->faker->lastName(),
+            'firstname' => $this->faker->firstName(),
+            'age' => $this->faker->numberBetween(18,35),
+            'phone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->email(),
+            'country_origin' => $this->faker->state(),
+            'gender_id'=> $this->faker->randomElement($array = array ('1','2')),
+            'position_id'=> $this->faker->numberBetween($min = 1, $max = 4),
+            'team_id'=> $this->faker->numberBetween($min = 1, $max = 10),
         ];
     }
 }

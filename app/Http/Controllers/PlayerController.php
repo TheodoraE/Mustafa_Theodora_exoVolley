@@ -53,7 +53,7 @@ class PlayerController extends Controller
             "country_origin" => 'required',
             "gender_id" => 'required',
             "position_id" => 'required',
-            "team_id" => 'required',
+            // "team_id" => 'required',
             "url" => 'required'
         ]);
 
@@ -127,7 +127,7 @@ class PlayerController extends Controller
             "country_origin" => 'required',
             "gender_id" => 'required',
             "position_id" => 'required',
-            "team_id" => 'required',
+            // "team_id" => 'required',
             "url" => 'required'
         ]);
 
