@@ -44,7 +44,7 @@ class PlayerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $validation = $request->validate([
             "lastname" => 'required',
@@ -80,7 +80,23 @@ class PlayerController extends Controller
         $store->picture_id = $storeImg->id;
         $store->save();
 
-        return redirect()->back();
+
+        // $players = Player::all();
+        // // $teams = Team::all();
+        // $team = Team::find($id);
+
+        // $teamplayers= $players->where("team_id",$team->id);
+
+        // // $equipe = Team::find($team_id);
+        
+        // if (count($teamplayers) == $team->players_max) {
+            
+        //     return redirect()->back();
+        // } else {
+        //     $store->save();
+        //     return redirect()->back();
+        // }
+        
     }
 
     /**

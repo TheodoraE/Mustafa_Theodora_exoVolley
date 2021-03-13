@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           @foreach ($femmes as $player)
-            @if (($player->teams->name != "Sans équipe") || ($player->teams->name != "sans équipe"))
+          @if ($player->team_id != null )
               @if ($countFemmes <5)
                 <tr>
                   <th scope="row">{{$player->id}}</th>

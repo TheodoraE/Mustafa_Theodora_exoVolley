@@ -16,7 +16,8 @@
         </thead>
         <tbody>
           @foreach ($players as $player)
-            @if ($player->teams->name != "Sans équipe")
+            @if ($player->team_id != null)
+              @if ($countPlayerWTeam <4)
                 <tr>
                     <th scope="row">{{$player->id}}</th>
                     <td> {{$player->lastname}}</td>
@@ -36,6 +37,8 @@
                         </form>
                     </td>
                 </tr>
+                <span style="display: none">{{$countPlayerWTeam++}}</span>
+              @endif
             @endif
           @endforeach
         </tbody>

@@ -20,15 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $team= Team::all();
     $players= Player::all();
-    
-    
 
     $hommes = $players->where('gender_id', 1);
     $countHommes = 0;
     $femmes = $players->where('gender_id', 2);
     $countFemmes = 0;
+    $countPlayerWTeam = 0;
+    $countPlayerNoTeam = 0;
 
-    return view('dashboard', compact('team', 'players', 'hommes', 'femmes', 'countHommes', 'countFemmes'));
+    return view('dashboard', compact('team', 'players', 'hommes', 'femmes', 'countHommes', 'countFemmes', 'countPlayerWTeam', 'countPlayerNoTeam'));
 });
 
 // Deux routes resources

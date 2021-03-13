@@ -16,12 +16,13 @@
         </thead>
         <tbody>
           @foreach ($players as $player)
-            @if ($player->teams->name == "Sans équipe")
+            @if ($player->team_id == null)
+              @if ($countPlayerNoTeam <4)
                 <tr>
                     <th scope="row">{{$player->id}}</th>
                     <td> {{$player->lastname}}</td>
                     <td>{{$player->firstname}}</td>
-                    <td>{{$player->teams->name}}</td>
+                    <td>Sans équipe</td>
                     <td>
                         <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
                     </td>
@@ -36,6 +37,8 @@
                         </form>
                     </td>
                 </tr>
+                <span style="display: none">{{$countPlayerNoTeam++}}</span>
+              @endif
             @endif
           @endforeach
         </tbody>

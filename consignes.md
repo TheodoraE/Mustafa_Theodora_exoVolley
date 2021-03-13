@@ -18,8 +18,8 @@ le nom de l'équipe du joueur est cliquable également pour aller voir le show d
 
 Une page Dashboard avec :
 1 une section ( 2 équipes remplies au hasard )
-2 une section ( 4 joueurs sans équipes au hasard )
-3 une section ( 4 joueurs avec équipe )
+__2 une section ( 4 joueurs sans équipes au hasard )__
+__3 une section ( 4 joueurs avec équipe )__
 4 une section ( 2 équipes non remplies au hasard )
 __5 une section ( les equipes d'europes )__
 __6 une section ( les équipes hors europes )__
