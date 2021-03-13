@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           @foreach ($players as $player)
-            @if ($player->teams->name != "Sans équipe")
+            @if ($player->teams->country == $player->country_origin)
                 <tr>
                     <th scope="row">{{$player->id}}</th>
                     <td> {{$player->lastname}}</td>

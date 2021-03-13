@@ -21,6 +21,7 @@ Route::get('/', function () {
     $team= Team::all();
     $players= Player::all();
     
+    
 
     $hommes = $players->where('gender_id', 1);
     $countHommes = 0;

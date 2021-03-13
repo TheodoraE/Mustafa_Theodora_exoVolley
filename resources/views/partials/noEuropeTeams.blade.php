@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             @foreach ($team as $item)
-                {{-- @if ( ) --}}
+                @if ($item->continent_id != 1)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->name }}</td>
@@ -38,7 +38,7 @@
                             </form>
                         </td>
                     </tr>
-                {{-- @endif --}}
+                @endif
             @endforeach
         </tbody>
     </table>
