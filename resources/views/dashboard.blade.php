@@ -11,5 +11,9 @@
         @include('partials.playersWTeam')
         @include('partials.noFullTeamRandom')
         @include('partials.europeTeams')
+        @include('partials.noEuropeTeams')
+        @include('partials.playersCountry')
+        @include('partials.femalePlayersRandomWTeam')
+        @include('partials.malePlayersWTeam')
     </div>
 @endsection
