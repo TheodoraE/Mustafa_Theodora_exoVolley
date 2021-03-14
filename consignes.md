@@ -17,10 +17,10 @@ Nom Prénom Nom d'équipe button pour voir le show du joueur
 le nom de l'équipe du joueur est cliquable également pour aller voir le show de l'équipe avec toutes les informations !
 
 Une page Dashboard avec :
-1 une section ( 2 équipes remplies au hasard )
+__1 une section ( 2 équipes remplies au hasard )__
 __2 une section ( 4 joueurs sans équipes au hasard )__
 __3 une section ( 4 joueurs avec équipe )__
-4 une section ( 2 équipes non remplies au hasard )
+__4 une section ( 2 équipes non remplies au hasard )__
 __5 une section ( les equipes d'europes )__
 __6 une section ( les équipes hors europes )__
 7 une section ( les joueurs qui représente leur pays( meme pays dorigine que l'équipe dans la quelle ils jouent )

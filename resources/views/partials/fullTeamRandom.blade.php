@@ -16,8 +16,8 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($team as $item)
-                @if ($item->id <3)
+            @foreach ($fullPlayer as $item)
+                @if (count($fullPlayer) <3)
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->name }}</td>

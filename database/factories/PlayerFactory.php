@@ -32,7 +32,7 @@ class PlayerFactory extends Factory
             'gender_id'=> $this->faker->randomElement($array = array ('1','2')),
             'position_id'=> $this->faker->numberBetween($min = 1, $max = 4),
             'team_id'=> $this->faker->numberBetween($min = 1, $max = 10),
-            // 'picture_id'=> $this->faker->unique()->numberBetween(1,15),   
+            'picture_id'=> $this->faker->numberBetween(1,1),   
         ];
     }
 }

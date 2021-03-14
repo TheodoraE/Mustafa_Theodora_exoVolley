@@ -15,33 +15,54 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($players as $player)
-            @if ($player->team_id == null)
-              @if ($countPlayerNoTeam <4)
-                <tr>
-                    <th scope="row">{{$player->id}}</th>
-                    <td> {{$player->lastname}}</td>
-                    <td>{{$player->firstname}}</td>
-                    <td>Sans équipe</td>
-                    <td>
-                        <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
-                    </td>
-                    <td>
-                        <a href="/players/{{$player->id}}/edit" class="btn btn-warning mb-2">EDIT</a>
-                    <td>
-                    <td>
-                        <form action="/players/{{$player->id}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">DELETE</button>
-                        </form>
-                    </td>
-                </tr>
-                <span style="display: none">{{$countPlayerNoTeam++}}</span>
-              @endif
-            @endif
-          @endforeach
+          @if (count($playerNoTeam) <4)
+            @foreach ($playerNoTeam as $player)
+              <tr>
+                  <th scope="row">{{$player->id}}</th>
+                  <td> {{$player->lastname}}</td>
+                  <td>{{$player->firstname}}</td>
+                  <td>Sans équipe</td>
+                  <td>
+                      <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
+                  </td>
+                  <td>
+                      <a href="/players/{{$player->id}}/edit" class="btn btn-warning mb-2">EDIT</a>
+                  <td>
+                  <td>
+                    <form action="/players/{{$player->id}}" method="POST">
+                      @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                  </td>
+              </tr>
+              <span style="display: none">{{$countPlayerNoTeam++}}</span>
+            @endforeach
+          @else
+            @foreach ($randPlayerNoTeam as $player)
+              <tr>
+                  <th scope="row">{{$player->id}}</th>
+                  <td> {{$player->lastname}}</td>
+                  <td>{{$player->firstname}}</td>
+                  <td>Sans équipe</td>
+                  <td>
+                      <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
+                  </td>
+                  <td>
+                      <a href="/players/{{$player->id}}/edit" class="btn btn-warning mb-2">EDIT</a>
+                  <td>
+                  <td>
+                    <form action="/players/{{$player->id}}" method="POST">
+                      @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                  </td>
+              </tr>
+              <span style="display: none">{{$countPlayerNoTeam++}}</span>
+            @endforeach
+          @endif
         </tbody>
-    </table>
+      </table>
 
 </div>

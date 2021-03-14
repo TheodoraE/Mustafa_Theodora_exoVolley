@@ -15,31 +15,27 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($players as $player)
-            @if ($player->team_id != null)
-              @if ($countPlayerWTeam <4)
-                <tr>
-                    <th scope="row">{{$player->id}}</th>
-                    <td> {{$player->lastname}}</td>
-                    <td>{{$player->firstname}}</td>
-                    <td>{{$player->teams->name}}</td>
-                    <td>
-                        <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
-                    </td>
-                    <td>
-                        <a href="/players/{{$player->id}}/edit" class="btn btn-warning mb-2">EDIT</a>
-                    <td>
-                    <td>
-                        <form action="/players/{{$player->id}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">DELETE</button>
-                        </form>
-                    </td>
-                </tr>
-                <span style="display: none">{{$countPlayerWTeam++}}</span>
-              @endif
-            @endif
+          @foreach ($randPlayerWTeam as $player)
+            <tr>
+                <th scope="row">{{$player->id}}</th>
+                <td> {{$player->lastname}}</td>
+                <td>{{$player->firstname}}</td>
+                <td>{{$player->teams->name}}</td>
+                <td>
+                    <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
+                </td>
+                <td>
+                    <a href="/players/{{$player->id}}/edit" class="btn btn-warning mb-2">EDIT</a>
+                <td>
+                <td>
+                    <form action="/players/{{$player->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                </td>
+            </tr>
+            <span style="display: none">{{$countPlayerWTeam++}}</span>
           @endforeach
         </tbody>
     </table>

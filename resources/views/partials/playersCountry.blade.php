@@ -15,13 +15,13 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($players as $player)
+          @foreach ($countryPlayer as $player)
             {{-- @if ($team->country == $player->country_origin) --}}
                 <tr>
                     <th scope="row">{{$player->id}}</th>
                     <td> {{$player->lastname}}</td>
                     <td>{{$player->firstname}}</td>
-                    {{-- <td>{{$player->teams->name}}</td> --}}
+                    <td>{{$player->teams->name}}</td>
                     <td>
                         <a href="/players/{{$player->id}}" class="btn btn-warning">SHOW</a>
                     </td>
