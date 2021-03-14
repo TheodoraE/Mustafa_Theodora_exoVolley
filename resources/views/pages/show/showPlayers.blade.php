@@ -8,7 +8,7 @@
                     <div class="d-flex justify-content-center">
                         @if ($show->picture_id != Null)
                         <img src="{{asset('storage/img/'.$show->pictures->url)}}" alt="" height="150px">            
-                        @else
+                        @else 
                         <img src="{{asset('storage/img/silouhaite.jpeg')}}" alt="" height="150px">
                         @endif
                     </div>

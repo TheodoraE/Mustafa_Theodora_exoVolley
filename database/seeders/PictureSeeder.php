@@ -19,48 +19,48 @@ class PictureSeeder extends Seeder
                 [
                     'url' => "silouhaite.jpeg"
                 ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
-                [
-                    'url' => "silouhaite.jpeg"
-                ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
+                // [
+                //     'url' => "silouhaite.jpeg"
+                // ],
               
             ]
         );

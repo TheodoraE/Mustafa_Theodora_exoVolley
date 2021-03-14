@@ -23,6 +23,6 @@ __3 une section ( 4 joueurs avec équipe )__
 4 une section ( 2 équipes non remplies au hasard )
 __5 une section ( les equipes d'europes )__
 __6 une section ( les équipes hors europes )__
-__7 une section ( les joueurs qui représente leur pays( meme pays dorigine que l'équipe dans la quelle ils jouent )__
+7 une section ( les joueurs qui représente leur pays( meme pays dorigine que l'équipe dans la quelle ils jouent )
 __8 Une section 5 joueuses au hasard qui ont une équipe !__
 __9 Une section 5 joueurs homme et qui ont une équipe !__

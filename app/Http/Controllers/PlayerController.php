@@ -60,10 +60,12 @@ class PlayerController extends Controller
         ]);
 
         // Picture
-        $storeImg = new Picture;
-        $storeImg->url = $request->file('url')->hashName();
-        Storage::put('public/img', $request->file('url'));
-        $storeImg->save();
+        if ($request->url != null){
+            $storeImg = new Picture;
+            $storeImg->url = $request->file('url')->hashName();
+            Storage::put('public/img', $request->file('url'));
+            $storeImg->save();                
+        }
 
         // Player
         $store = new Player;
@@ -77,9 +79,15 @@ class PlayerController extends Controller
         $store->gender_id = $request->gender_id;
         $store->position_id = $request->position_id;
         $store->team_id = $request->team_id;
-        $store->picture_id = $storeImg->id;
-        $store->save();
 
+        if($request->url != null) {
+            $store->picture_id = $storeImg->id;
+        } else {
+            $store->picture_id = 1;
+        }
+
+        $store->save();
+        return redirect()->back();
 
         // $players = Player::all();
         // // $teams = Team::all();
@@ -110,6 +118,7 @@ class PlayerController extends Controller
         $show = Player::find($id);
         $teams = Team::all();
         $img= Picture::all(); 
+        // dd($show);
         return view('pages.show.showPlayers', compact('show','teams','img'));
     }
 
@@ -151,14 +160,20 @@ class PlayerController extends Controller
             ]);
             
             // Picture
-        $updateImg = Picture::find($id);
-        // Storage::delete('public/img/'.$updateImg->url);
-        $updateImg->url = $request->file('url')->hashName();
-        Storage::put('public/img', $request->file('url'));
-        $updateImg->save();
+        $update = Player::find($id);
+        $img = Picture::find($update->picture_id);
+        if ($img->url != 'silouhaite.jpeg') {
+            Storage::delete('public/img/'.$img->url);
+            Storage::put('public/img', $request->file('url'));
+            $img->url = $request->file('url')->hashName();
+        } else {
+            Storage::put('public/img', $request->file('url'));
+            $updateImg = new Picture;
+            $updateImg->url = $request->file('url')->hashName();
+            $updateImg->save();
+        }
         
         // Player
-        $update = Player::find($id);
         $update->lastname = $request->lastname;
         $update->firstname = $request->firstname;
         $update->age = $request->age;
@@ -183,10 +198,14 @@ class PlayerController extends Controller
      */
     public function destroy($id)
     {
-        $destroyImg = Picture::find($id);
         $destroy = Player::find($id);
-        // Storage::delete('public/img/'.$destroyImg->url);
-        // $destroyImg->delete();
+        $destroyImg = Picture::find($destroy->picture_id);
+        if($destroyImg->url != 'silouhaite.jpeg')
+        {
+            Storage::delete('public/img/'.$destroyImg->url);
+            $destroy->delete();
+            $destroyImg->delete();
+        }
         $destroy->delete();
         return redirect('/players');
     }

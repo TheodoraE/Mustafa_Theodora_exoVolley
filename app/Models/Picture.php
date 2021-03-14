@@ -10,6 +10,6 @@ class Picture extends Model
     use HasFactory;
     public function players()
 	{
-		return $this->hasOne(Player::class);
+		return $this->hasMany(Player::class, 'picture_id');
 	}
 }

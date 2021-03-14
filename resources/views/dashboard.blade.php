@@ -1,7 +1,7 @@
 @extends('template.main')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-2">
         <div>
             <h1>Dashboard</h1>
         </div>
