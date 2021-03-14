@@ -86,24 +86,25 @@ class PlayerController extends Controller
             $store->picture_id = 1;
         }
 
-        $store->save();
-        return redirect()->back();
+        // $store->save();
+        // return redirect()->back();
 
-        // $players = Player::all();
-        // // $teams = Team::all();
+        $players = Player::all();
+        $teams = Team::all();
         // $team = Team::find($id);
 
-        // $teamplayers= $players->where("team_id",$team->id);
-
+        $teamplayers= $players->where("team_id",$request->team_id);
+        $team = $teams->where('id', $request->team_id);
         // // $equipe = Team::find($team_id);
         
-        // if (count($teamplayers) == $team->players_max) {
+        // dd($team);
+        if (count($teamplayers) == $team[0]->players_max) {
             
-        //     return redirect()->back();
-        // } else {
-        //     $store->save();
-        //     return redirect()->back();
-        // }
+            return redirect('/players');
+        } else {
+            $store->save();
+            return redirect()->back();
+        }
         
     }
 
