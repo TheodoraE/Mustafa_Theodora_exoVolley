@@ -100,10 +100,10 @@ class PlayerController extends Controller
         // dd($team);
         if (count($teamplayers) == $team[0]->players_max) {
             
-            return redirect('/players');
+            return redirect()->back()->withErrors(['You cannot add more than the max limit player'.' '.count($teamplayers).'/'.$team[0]->players_max]);
         } else {
             $store->save();
-            return redirect()->back();
+            return redirect('/players');
         }
         
     }
