@@ -28,7 +28,17 @@ Route::get('/', function () {
     }
     // 
     $playerNoTeam = $players->where('team_id', "==", null);
-    $randPlayerNoTeam = $playerNoTeam->random(4);
+    if (count($playerNoTeam) <1){
+        $randPlayerNoTeam = $playerNoTeam->random(count($playerNoTeam));
+    }
+    else if (count($playerNoTeam) >=4)
+    {
+        $randPlayerNoTeam = $playerNoTeam->random(4);
+    }
+    else {
+        $randPlayerNoTeam = $playerNoTeam;
+    }
+
     // 
     $playerWTeam = $players->where('team_id', "!=", null);
     $randPlayerWTeam = $playerWTeam->random(4);
