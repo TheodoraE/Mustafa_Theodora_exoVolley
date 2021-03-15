@@ -98,7 +98,11 @@ class PlayerController extends Controller
         // // $equipe = Team::find($team_id);
         
         // dd($team);
-        if (count($teamplayers) == $team[0]->players_max) {
+        if ($request->team_id == null){
+            $store->save();
+            return redirect('/players');
+        }
+        else if (count($teamplayers) == $team[0]->players_max) {
             
             return redirect()->back()->withErrors(['You cannot add more than the max limit player'.' '.count($teamplayers).'/'.$team[0]->players_max]);
         } else {
